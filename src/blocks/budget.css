@@ -1,0 +1,158 @@
+.budget {
+    padding-top: 60px;
+    padding-bottom: 116px;
+    background-color: #B0EDDB;
+}
+
+.budget__rent-information {
+    width: 47%;
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding-left: 48px;
+    padding-top: 36px;
+    padding-right: 48px;
+    padding-bottom: 32px;
+    box-sizing: border-box;
+}
+
+.budget__price-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.budget__price-item:not(:last-child) {
+    margin-bottom: 12px;
+}
+
+.budget__wrapper {
+    display: flex;
+    max-width: 1168px;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.budget__title {
+    margin: auto;
+    margin-bottom: 8px;
+    max-width: 524px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: bold;
+    color: #5A3F98;
+}
+
+.budget__count {
+    margin: 0;
+    margin-bottom: 32px;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #333235;
+}
+
+.budget__subtitle {
+    margin: 0;
+    margin-bottom: 28px;
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    color: #5A3F98;
+}
+
+.budget__list {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 20px;
+    list-style: none;
+    border-bottom: 2px dashed #9397CB;
+}
+
+.budget__total-price {
+    margin: 0;
+    margin-top: 16px;
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    color: #5A3F98;
+}
+
+@media screen and (max-width: 1280px) {
+    .budget__wrapper {
+        width: calc(100% - 64px);
+        margin: auto;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .budget {
+        padding-bottom: 80px;
+    }
+
+    .budget__wrapper {
+        width: calc(100% - 220px);
+        margin: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+    .budget__rent-information {
+        width: 100%;
+    }
+    .budget__rent-information:not(:last-child) {
+        margin-bottom: 24px;
+    }
+}
+
+@media screen and (max-width: 700px) { 
+    .budget__wrapper {
+        width: calc(100% - 100px);
+    }
+}
+
+
+@media screen and (max-width: 360px) {
+    .budget__wrapper {
+        width: calc(100% - 32px);
+        min-height: 664px;
+    }
+
+    .budget__rent-information {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 36px;
+        padding-bottom: 32px;
+    }
+    .budget__rent-information:not(:last-child) {
+        margin-bottom: 24px;
+    }
+    .budget__price-item {
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: 0.5px;
+    }
+    .budget__total-price {
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .budget__subtitle {
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .budget__list {
+        padding-bottom: 24px;
+    }
+}
+
+

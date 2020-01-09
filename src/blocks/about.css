@@ -1,0 +1,277 @@
+.about {
+    padding-top: 76px;
+    padding-bottom: 40px;
+    width: 100%;
+    max-width: 1240px;
+    margin: auto;
+
+
+    margin-bottom: 76px;
+}
+
+.about__description {
+    max-width: 272px;
+}
+
+
+.about__description--main {
+    align-self: flex-end;
+}
+.about__text {
+    margin: 0;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.25px;
+}
+.about__text:not(:last-child) {
+    /* margin-bottom: 29px; */
+
+
+    margin-bottom: 20px;
+}
+
+.about__text span {
+    font-weight: 700;
+}
+
+.about--person {
+    padding-top: 59px;
+    padding-bottom: 38px;
+
+
+    margin-bottom: 80px;
+}
+
+.about__description--person {
+    max-width: 604px;
+}
+
+.about__image {
+    width: 500px;
+    height: 340px;
+}
+
+.about__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.about__video-container {
+    position: relative;
+}
+
+.about__video {
+    width: 860px ;
+    height: 484px;
+}
+
+.about__video-play {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    bottom: 49px;
+    left: 45px;
+    padding: 18px 20px;
+    width: 184px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    letter-spacing: 0.5px;
+    background: transparent;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 8px;
+    transition: .5s;
+    cursor: pointer;
+}
+
+
+.about__video-play:hover {
+    color: #5A3F98;
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+}
+
+.about__video-play:hover path {
+    fill: #5A3F98;
+}
+
+.about__description--person {
+    order:1
+  }
+  
+  .about__description--no-order {
+      order: 0;
+  }
+
+  .about__title {
+    margin: 0;
+    margin-bottom: 44px;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #5A3F98;
+  }
+
+  .about__text--call {
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 28px;
+    letter-spacing: 1px;
+    color: #FC691B;
+  }
+
+  .about__description--slider {
+    max-width: 397px;
+
+
+
+    margin-top: 57px;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .about {
+		width: calc(100% - 100px);
+    }
+    
+    .about__wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .about__video {
+        display: block;
+        width: 704px ;
+        height: 396px;
+    }
+    .about__description--main {
+        order: 1;
+        margin: auto;
+        padding: 48px 56px;
+        margin-top: 40px;
+        background: #B0EDDB;
+        max-width: 555px;
+        box-sizing: border-box;
+    }
+    .about__title {
+        margin-bottom: 24px;
+    }
+    .about__description--person {
+        margin-top: 30px;
+
+    }
+
+    .about__description--slider {
+    max-width: 500px;
+    margin: auto;
+    }
+  }
+
+
+
+
+
+@media screen and (max-width: 768px) {
+	.about {
+		width: calc(100% - 268px);
+    }
+    .about__wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about__video {
+        display: block;
+        width: 704px ;
+        height: 396px;
+    }
+    .about__description--main {
+        order: 1;
+        margin: auto;
+        padding: 48px 56px;
+        margin-top: 40px;
+        background: #B0EDDB;
+        max-width: 555px;
+        box-sizing: border-box;
+    }
+    .about__title {
+        margin-bottom: 24px;
+    }
+    .about__description--person {
+        margin-top: 30px;
+    }
+    .about__image-slider {
+        width: 704px;
+        height: 440px;
+    }
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 700px) {
+    .about {
+        width: 100%;
+    }
+
+    .about__video {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .about__video-play {
+        bottom: 22px;
+        left: 14px;
+    }
+
+    .about__image {
+        width: 360px;
+        height: 244px;
+        margin: auto;
+    }
+
+    .about__image-slider {
+        width: 360px;
+        height: 248px;
+    }
+   
+    .about__description--person {
+        width: calc(100% - 48px);
+        margin: auto;
+    }
+
+    .about__text {
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.25px;
+    }
+
+    .about__text--call {
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: bold;
+    }
+
+    .about__description--main {
+        margin-top: 0;
+        padding: 32px 24px;
+    }
+}
+
+
+@media screen and (max-width: 360px) {
+    .about__video {
+        height: 280px;
+    }
+}

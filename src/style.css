@@ -1,0 +1,57 @@
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts.css);
+@import url(./blocks/button.css);
+@import url(./blocks/footer.css);
+@import url(./blocks/header.css);
+@import url(./blocks/about.css);
+@import url(./blocks/budget.css);
+@import url(./blocks/modal.css);
+@import url(./blocks/payment-form.css);
+@import url(./blocks/additional.css);
+@import url(./blocks/trainer.css);
+@import url(./blocks/slider.css);
+
+
+body {
+  /* min-width: 1140px; */
+  margin: 0 auto;
+  color:  #333235;
+  font-family: "HelveticaNeueCyr", "Arial", sans-serif;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: greyscale;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+.root {
+  font-size: 18px;
+  color: #333235;
+  line-height: 24px;
+  letter-spacing: 0.25px;
+}
+
+.hidden {
+	display:  none;
+}
+
+
+

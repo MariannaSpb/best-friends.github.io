@@ -1,0 +1,147 @@
+.header {
+    /* position: fixed; */
+    display: flex;
+    padding-top: 10px;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 94px;
+    max-width: 1240px;
+    margin: auto;
+    background: #FFFFFF;
+    opacity: 0.9;
+  
+    /* position: fixed; */
+    z-index: 2;
+}
+
+.header__btn:hover {
+    background-color: #FC691B;
+    color: #FFFFFF;
+}
+
+.header__btn:active {
+    color: #333235;
+}
+
+
+#header-wrapper {
+    width: 100%;
+    min-height: 94px;
+    max-width: 1240px;
+    margin: auto;
+}
+
+.header__logo {
+    margin-right: 48px;
+}
+
+.header__social.additional__social-list {
+    width: 224px;
+    margin-right: 52px;
+    padding-bottom: 0;
+}
+
+.header__title {
+    margin: 0;
+    max-width: 215px;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+
+}
+
+.header__subtitle {
+    margin: 0;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    color: #5A3F98;
+}
+
+.header__title span {
+    font-weight: 700;
+}
+
+.header__wrapper--right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__wrapper--left {
+    display: flex;
+    align-items: center;
+}
+
+.header__wrapper-share {
+    margin-right: 52px;
+    cursor: pointer;
+}
+
+.header__wrapper-share:hover path {
+    fill: #FC691B;
+}
+
+
+@media screen and (max-width: 1280px) {
+	.header {
+		width: calc(100% - 100px);
+    }
+    #header-wrapper {
+        width: calc(100% - 100px);
+    }
+}
+
+
+@media screen and (max-width: 1120px) {
+	.header__subtitle {
+        display: none;
+    }
+    .header__social.additional__social-list {
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+	.header {
+		width: calc(100% - 64px);
+    }
+
+    #header-wrapper {
+        width: calc(100% - 64px);
+    }
+    .header__subtitle {
+        display: none;
+    }
+
+    .header__logo {
+        margin-right: 40px;
+    }
+  
+}
+
+
+@media screen and (max-width: 600px) {
+	.header {
+		width: calc(100% - 32px);
+    }
+
+    #header-wrapper {
+        width: calc(100% - 32px);
+    }
+    .header__text-wrapper {
+        display: none;
+    }
+
+    .header__wrapper-share {
+        display: none;
+    }
+
+    .header__logo img {
+        width: 64px;
+        height: 64px;
+    }
+}

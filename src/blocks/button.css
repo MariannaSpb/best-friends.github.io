@@ -1,0 +1,23 @@
+.button {
+    padding: 8px 16px;
+    display: block;
+    width: 124px;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    background: #ffffff;
+    border-radius: 4px;
+    color: #FC691B;
+    transition: .5s;
+    border: 2px solid #FC691B;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+	.button {
+        width: 104px;
+    }
+}
