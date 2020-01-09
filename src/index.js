@@ -200,8 +200,6 @@ const validationForm = (event) => {
   });
 }
 
-// console.log(input.closest('.payment-form__input-box').querySelector('.payment-form__user-label')); //closest вернет для input ближайший родительский
-//элемент - контейнер P и затем в контейнере найдёт лейбл. 
 
 sendButton.forEach(button => {
   button.addEventListener('click', validationForm)
@@ -315,3 +313,7 @@ ownAmountPage.addEventListener('input', () => {
     item.removeAttribute('checked');
   })
 });
+
+
+// console.log(input.closest('.payment-form__input-box').querySelector('.payment-form__user-label')); //closest вернет для input ближайший родительский
+//элемент - контейнер P и затем в контейнере найдёт лейбл. 
