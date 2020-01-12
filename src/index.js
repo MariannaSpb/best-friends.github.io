@@ -62,12 +62,12 @@ copyButton.forEach(item => {
 
 const budgetSection = document.querySelector('#budget');
 const header = document.querySelector('.header');
-
+// console.log(budgetSection.offsetTop)
 
 document.addEventListener('scroll', function() {
   let position = budgetSection.offsetTop;
   const scrolled = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrolled >= position) { //2970 
+    if (scrolled >= 5150) { //position 
       header.style.position = 'static';
   } else {
     header.style.position = 'fixed';
@@ -124,7 +124,6 @@ const form = document.forms.payment;
 const modalForm = document.forms.modal;
 const inputs = document.querySelectorAll('.payment-form__user-input');
 const sendButton = document.querySelectorAll('.payment-form__button');
-console.log('inp', inputs)
 
 inputs.forEach(item => {
   item.addEventListener('input', () => {
@@ -173,6 +172,7 @@ const validateEmail = (email) => {
 
 
 const validationForm = (event) => { 
+  event.preventDefault();
   const inputEmail = document.querySelector('#email-form');
   const email = inputEmail.value;
   inputs.forEach(item => {
@@ -317,3 +317,46 @@ ownAmountPage.addEventListener('input', () => {
 
 // console.log(input.closest('.payment-form__input-box').querySelector('.payment-form__user-label')); //closest вернет для input ближайший родительский
 //элемент - контейнер P и затем в контейнере найдёт лейбл. 
+
+const linkUp = document.querySelector('.scroll');
+// const header = document.querySelector('.header');
+
+
+function handleButtonClick(evt) {
+  evt.preventDefault();
+  header.scrollIntoView({block: "start", behavior: "smooth"});
+}
+
+linkUp.addEventListener('click', handleButtonClick);
+
+//cloudpayments
+const pay =  () => {
+  var widget = new cp.CloudPayments();
+  widget.charge ({ // options
+          publicId: 'test_api_00000000000000000000001',  //id из личного кабинета
+          description: 'Пример оплаты (деньги сниматься не будут)', //назначение
+          amount: 10, //сумма
+          currency: 'RUB', //валюта
+          invoiceId: '1234567', //номер заказа  (необязательно)
+          accountId: 'user@example.com', //идентификатор плательщика (необязательно)
+          skin: "mini", //дизайн виджета
+          data: {
+              myProp: 'myProp value' //произвольный набор параметров
+          }
+      },
+      function (options) { // success
+          //действие при успешной оплате
+          console.log('options')
+      },
+      function (reason, options) { // fail
+          //действие при неуспешной оплате
+          console.log('fail')
+      });
+};  
+
+
+
+
+sendButton.forEach(button => {
+  button.addEventListener('click', pay)
+});

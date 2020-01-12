@@ -6,6 +6,7 @@
       <meta http-equiv='X-UA-Compatible' content='ie=edge'>
       <title>Best friends</title>
       <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
+      <script src="https://widget.cloudpayments.ru/bundles/cloudpayments"></script>
       <script type="text/javascript" src="https://vk.com/js/api/share.js?95"></script>
 </head>
 <body>
@@ -57,12 +58,12 @@
                   </header>
             </div>
             <main>
-            <section class="about">
+            <section class="about about--main">
                   <div class="about__wrapper">
                         <h2 class="visually-hidden">О фонде</h2>
                         <div class="about__description about__description--main">
                               <p class="about__text">Фонд «Лучшие друзья» проводит регулярные занятия по футболу и волейболу для людей с нарушением развития и без. Постоянные занятия требуют регулярных расходов. Поэтому <span>нужна ваша помощь.</span></p>
-                              <p class="about__text">Чтобы у ребят была возможность тренироваться в течение года, <span>необходимо собрать 765 536 руб.</span></p>
+                              <p class="about__text">Чтобы у ребят была возможность тренироваться в&nbsp; течение года, <span>необходимо собрать 765 536 руб.</span></p>
                         </div>
                         <div class="about__video-container">
                               <video id="video" class="about__video"  poster="<%=require('./images/video-bg.png')%>"  loop muted autoplay>
@@ -175,7 +176,7 @@
                                           <input class="payment-form__radio visually-hidden" type="radio" name="type" value="credit-rard" id="cards" checked>
                                           <label class="payment-form__radio-label payment-form__radio-label-card" for="cards">Банковская карта</label>
                                     </div>
-                                    <div class="payment-form__field-inner">
+                                    <div class="payment-form__field-inner payment-form__field-inner--money">
                                           <input class="payment-form__radio visually-hidden" type="radio" name="type" value="yandex" id="yandex">
                                           <label class="payment-form__radio-label payment-form__radio-label-ya" for="yandex">Яндекс.Деньги</label>
                                     </div>
@@ -358,7 +359,7 @@
                         <a class="footer__btn button" href='#'>Помочь</a>
                   </div>
                   <div class="footer__arrow-up" id="arrow-up">
-                        <a class="footer__arrow-link" href="#header">
+                        <a class="footer__arrow-link scroll" href="#header">
                               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M20 26.6669H12V16.0002H5.54663L16 5.54688L26.4533 16.0002H20V26.6669Z" fill="#5A3F98"/>
                               </svg>
@@ -372,11 +373,20 @@
                         <h2 class="modal__title modal__title--after hidden">Спасибо, что вы помогаете ребятам с нарушением итнтеллекта заниматься спортом и развиваться.</h2>
                         <form class="payment-form__form" name= "modal" method="POST" action="#">
                               <div class="payment-form__field payment-form__field--radio">
-                                    <input class="payment-form__radio visually-hidden" type="radio" name="type" value="credit-rard" id="card" checked>
+                                    <!-- <input class="payment-form__radio visually-hidden" type="radio" name="type" value="credit-rard" id="card" checked>
                                     <label class="payment-form__radio-label payment-form__radio-label-card" for="card">Банковская карта</label>
                                     <input class="payment-form__radio visually-hidden" type="radio" name="type" value="yandex" id="ya">
-                                    <label class="payment-form__radio-label payment-form__radio-label-ya" for="ya">Яндекс.Деньги</label>
+                                    <label class="payment-form__radio-label payment-form__radio-label-ya" for="ya">Яндекс.Деньги</label> -->
+                                    <div class="payment-form__field-inner">
+                                          <input class="payment-form__radio visually-hidden" type="radio" name="type" value="credit-rard" id="card" checked>
+                                          <label class="payment-form__radio-label payment-form__radio-label-card" for="card">Банковская карта</label>
+                                    </div>
+                                    <div class="payment-form__field-inner payment-form__field-inner--money">
+                                          <input class="payment-form__radio visually-hidden" type="radio" name="type" value="yandex" id="ya">
+                                          <label class="payment-form__radio-label payment-form__radio-label-ya" for="ya">Яндекс.Деньги</label>
+                                    </div>
                               </div>
+                              
                               <div class="payment-form__field payment-form__field--checkbox">
                                     <input class="payment-form__input payment-form__input-radio-modal visually-hidden" type="radio" name="count" value="100" id="radio-1">
                                     <label class="payment-form__label" for="radio-1">100 ₽</label>

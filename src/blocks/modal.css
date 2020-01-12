@@ -15,6 +15,7 @@
 .modal.payment-form {
 	padding-top: 0;
 	padding-bottom: 0;
+	max-width: 100%;
 }
 
 .modal__open {

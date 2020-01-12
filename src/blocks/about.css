@@ -1,5 +1,5 @@
 .about {
-    padding-top: 76px;
+    padding-top: 68px;
     padding-bottom: 40px;
     width: 100%;
     max-width: 1240px;
@@ -179,8 +179,15 @@
 
 @media screen and (max-width: 768px) {
 	.about {
-		width: calc(100% - 268px);
+        width: calc(100% - 268px);
+        padding-top: 57px;
     }
+
+    .about--main {
+        width: calc(100% - 208px);
+    }
+
+  
     .about__wrapper {
         flex-direction: column;
         align-items: center;
@@ -194,21 +201,32 @@
     .about__description--main {
         order: 1;
         margin: auto;
-        padding: 48px 56px;
+        padding: 50px 56px;
         margin-top: 40px;
         background: #B0EDDB;
-        max-width: 555px;
+        max-width: 560px;
         box-sizing: border-box;
     }
     .about__title {
         margin-bottom: 24px;
     }
     .about__description--person {
-        margin-top: 30px;
+        margin-top: 42px;
+    }  .about__description--slider {
+        margin-top: 44px;
     }
     .about__image-slider {
         width: 704px;
         height: 440px;
+    }
+    .about__video-play {
+        bottom: 32px;
+        left: 31px;
+    }
+
+
+    .about__description--no-order {
+        order: 1;
     }
 }
 
