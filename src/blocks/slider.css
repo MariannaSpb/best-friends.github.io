@@ -126,7 +126,8 @@
 
 @media screen and (max-width: 768px) {
   .slider {
-    padding-top: 67px;
+    padding-top: 72px;
+    padding-bottom: 108px;
   }
   .slider .swiper-button-prev:after,
   .slider .swiper-button-next:after {
@@ -168,5 +169,25 @@
 
   .slider img {
     height: 254px;
+  }
+}
+
+
+@media screen and (max-width: 700px) { 
+  .slider {
+    padding-top: 20px;
+    padding-bottom: 75px;
+  }
+  .slider .swiper-container {
+    margin-bottom: 0;
+    height: 279px;
+  }
+
+  .slider .swiper-pagination {
+    transform: translatex(41%);
+  }
+
+  .about__description--slider .about__text {
+    margin-bottom: 26px;
   }
 }

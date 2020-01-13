@@ -80,7 +80,7 @@
             </section>
             <section class="about about--person">
                   <h2 class="visually-hidden">об Антоне</h2>
-                  <div class="about__wrapper">
+                  <div class="about__wrapper about__wrapper--person">
                         <div class="about__description about__description--person">
                               <p class="about__text about__text">У Антона фенилкетонурия – редкое наследственное заболевание, из-за которого у молодого человека появилось нарушение развития. После окончания учебы единственным спортивным мероприятием для него стала зарядка по утрам.</p>
                               <p class="about__text">Мама Антона Ирина долго искала командные занятия, на которые берут людей с ментальной инвалидностью, но безуспешно. И Антон стал коротать время за просмотром спортивных передач, мечтая однажды оказаться на поле.</p>
@@ -90,7 +90,7 @@
                   </div>
             </section>
             <section class="about about--person">
-                  <div class="about__wrapper">
+                  <div class="about__wrapper about__wrapper--person">
                         <div class="about__description about__description--person about__description--no-order">
                               <h2 class="about__title">Игра, доступная каждому</h2>
                               <p class="about__text about__text">Многие участники фонда до начала тренировок даже не знали, что они могут заниматься спортом на равных с волонтерами. Спорт для большинства из них был физкультурой в школе. Закончилась школа – закончился и спорт. Так размышлял и Антон Карамышев.</p>
@@ -100,7 +100,7 @@
                   </div>
             </section>
             <section class="about about--person">
-                  <div class="about__wrapper">
+                  <div class="about__wrapper about__wrapper--person">
                         <div class="about__description about__description--person">
                               <h2 class="about__title">Вместе к спортивным успехам</h2>
                               <p class="about__text about__text">Ирина, мама Антона, отмечает: «Я вижу, как сильно сын изменился за этот год. Он стал более общительным и уверенным в себе. <span>Спорт мотивирует</span> его двигаться к новым победам, и после каждой тренировки я радуюсь вместе с ним».</p>
@@ -110,7 +110,7 @@
                   </div>
             </section>
             <section class="about about--person">
-                  <div class="about__wrapper">
+                  <div class="about__wrapper about__wrapper--person">
                         <div class="about__description about__description--person about__description--no-order">
                               <h2 class="about__title">Спорт = дружба</h2>
                               <p class="about__text about__text">«Спорт помогает мне быть здоровым и счастливым», «Классно давать пас своему другу», «Когда я бегу, я чувствую себя героем фильма», – так участники фонда «Лучшие друзья» рассказывают про совместные тренировки по футболу и волейболу.</p>
@@ -182,17 +182,17 @@
                                     </div>
                               </div>
                               <div class="payment-form__field payment-form__field--checkbox">
-                                    <input class="payment-form__input payment-form__input-radio-page visually-hidden" type="radio" name="count" value="100" id="check-1">
+                                    <input class="payment-form__input payment-form__input-radio-page payment-form__input--cloud visually-hidden" type="radio" name="count" value="100" id="check-1">
                                     <label class="payment-form__label" for="check-1">100 ₽</label>
-                                    <input class="payment-form__input payment-form__input-radio-page visually-hidden" type="radio" name="count" value="300" id="check-2">
+                                    <input class="payment-form__input payment-form__input-radio-page payment-form__input--cloud visually-hidden" type="radio" name="count" value="300" id="check-2">
                                     <label class="payment-form__label" for="check-2">300 ₽</label>
-                                    <input class="payment-form__input payment-form__input-radio-page visually-hidden" type="radio" name="count" value="500" id="check-3" checked>
+                                    <input class="payment-form__input payment-form__input-radio-page payment-form__input--cloud visually-hidden" type="radio" name="count" value="500" id="check-3" checked>
                                     <label class="payment-form__label" for="check-3">500 ₽</label>
-                                    <input class="payment-form__input payment-form__input-radio-page visually-hidden" type="radio" name="count" value="1000" id="check-4">
+                                    <input class="payment-form__input payment-form__input-radio-page payment-form__input--cloud visually-hidden" type="radio" name="count" value="1000" id="check-4">
                                     <label class="payment-form__label" for="check-4">1000 ₽</label>
                                     <div class="payment-form__price-wrapper">
                                           <label class="payment-form__label visually-hidden" for="price-form"></label>
-                                          <input class="payment-form__input payment-form__input--price" type="text" name="own" value="" id="price-form" placeholder="Ваша сумма">
+                                          <input class="payment-form__input payment-form__input--price payment-form__input--cloud" type="text" name="own" value="" id="price-form" placeholder="Ваша сумма">
                                     </div>
                               </div>
                               <div class="payment-form__input-container">
@@ -224,9 +224,9 @@
                         </form>
                               <div class="payment-form__progress">
                                     <div class="payment-form__progress-bar">
-                                          <span></span>
+                                          <span id="bar"></span>
                                     </div>
-                                          <p class="payment-form__progress-description">Собрали 3 374 из 764 536 рублей</p>
+                                          <p class="payment-form__progress-description">Собрали <span class="payment-form__progress-amount">3 374</span> из 764 536 рублей</p>
                               </div>
                               
                         </div>
@@ -254,8 +254,8 @@
                         <img class="trainer__photo" src="<%=require('./images/Diana.png')%>" alt="фото футбольных ворот">
                         <div class="trainer__description">
                               <h3 class="trainer__subtitle">Диана Анищенко, тренер по волейболу:</h3>
-                              <p class="trainer__text">Мне нравится, как ребята вместе радуются победам и приободряют друг друга в случае неудачи. Я наблюдаю, как они учатся друг у друга правильно играть и помогают более слабым игрокам. Регулярные тренировки дают участникам фонда возможность не только заниматься спортом, но и найти поддержку, которой им не хватает. 
-                              </p>
+                              <p class="trainer__text">Мне нравится, как ребята вместе радуются победам и приободряют друг друга в случае неудачи. Я наблюдаю, как они учатся друг у друга правильно играть и помогают более слабым игрокам. </p>
+                              <p class="trainer__text trainer__text--add"> Регулярные тренировки дают участникам фонда возможность не только заниматься спортом, но и найти поддержку, которой им не хватает. </p>
                         </div>
                   </div>
             </section>
@@ -371,12 +371,8 @@
                         <img class="modal__close" src="<%=require('./images/close.svg')%>" alt="close">
                         <h2 class="modal__title">Спасибо, что решили помочь ребятам с нарушением развития !</h2>
                         <h2 class="modal__title modal__title--after hidden">Спасибо, что вы помогаете ребятам с нарушением итнтеллекта заниматься спортом и развиваться.</h2>
-                        <form class="payment-form__form" name= "modal" method="POST" action="#">
+                        <form class="payment-form__form payment-form__form--modal" name= "modal" method="POST" action="#">
                               <div class="payment-form__field payment-form__field--radio">
-                                    <!-- <input class="payment-form__radio visually-hidden" type="radio" name="type" value="credit-rard" id="card" checked>
-                                    <label class="payment-form__radio-label payment-form__radio-label-card" for="card">Банковская карта</label>
-                                    <input class="payment-form__radio visually-hidden" type="radio" name="type" value="yandex" id="ya">
-                                    <label class="payment-form__radio-label payment-form__radio-label-ya" for="ya">Яндекс.Деньги</label> -->
                                     <div class="payment-form__field-inner">
                                           <input class="payment-form__radio visually-hidden" type="radio" name="type" value="credit-rard" id="card" checked>
                                           <label class="payment-form__radio-label payment-form__radio-label-card" for="card">Банковская карта</label>
@@ -387,18 +383,18 @@
                                     </div>
                               </div>
                               
-                              <div class="payment-form__field payment-form__field--checkbox">
-                                    <input class="payment-form__input payment-form__input-radio-modal visually-hidden" type="radio" name="count" value="100" id="radio-1">
+                              <div class="payment-form__field payment-form__field--checkbox payment-form__field--checkbox-modal">
+                                    <input class="payment-form__input payment-form__input-radio-modal payment-form__input--cloud-modal visually-hidden" type="radio" name="count" value="100" id="radio-1">
                                     <label class="payment-form__label" for="radio-1">100 ₽</label>
-                                    <input class="payment-form__input payment-form__input-radio-modal visually-hidden" type="radio" name="count" value="300" id="radio-2">
+                                    <input class="payment-form__input payment-form__input-radio-modal payment-form__input--cloud-modal visually-hidden" type="radio" name="count" value="300" id="radio-2">
                                     <label class="payment-form__label" for="radio-2">300 ₽</label>
-                                    <input class="payment-form__input payment-form__input-radio-modal visually-hidden" type="radio" name="count" value="500" id="radio-3" checked>
+                                    <input class="payment-form__input payment-form__input-radio-modal payment-form__input--cloud-modal visually-hidden" type="radio" name="count" value="500" id="radio-3" checked>
                                     <label class="payment-form__label" for="radio-3">500 ₽</label>
-                                    <input class="payment-form__input payment-form__input-radio-modal visually-hidden" type="radio" name="count" value="1000" id="radio-4">
+                                    <input class="payment-form__input payment-form__input-radio-modal payment-form__input--cloud-modal visually-hidden" type="radio" name="count" value="1000" id="radio-4">
                                     <label class="payment-form__label" for="radio-4">1000 ₽</label>
                                     <div class="payment-form__price-wrapper">
                                           <label class="payment-form__label visually-hidden" for="price"></label>
-                                          <input class="payment-form__input payment-form__input--price" type="text" name="own" value="" id="price" placeholder="Ваша сумма">
+                                          <input class="payment-form__input payment-form__input--price payment-form__input--cloud-modal" type="text" name="own" value="" id="price" placeholder="Ваша сумма">
                                     </div>
                               </div>
                               <div class="payment-form__input-container">

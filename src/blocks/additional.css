@@ -10,7 +10,7 @@
 .additional__social-list {
     display: flex;
     justify-content: space-between;
-    max-width: 230px;
+    max-width: 224px;
     padding: 0;
     margin: 0 auto;
     list-style: none;
@@ -107,12 +107,17 @@
         margin: auto;
         margin-bottom: 48px;
     }
+
+    .additional__item {
+        margin-bottom: 32px;
+    }
 }
 
 @media screen and (max-width: 768px) {
     .additional {
         width: calc(100% - 144px);
-        padding-bottom: 129px;
+        padding-bottom: 47px;
+        padding-top: 56px;
     }
 
     .additional__list {
@@ -121,12 +126,22 @@
         width: 100%;
     }
     .additional__item {
-        width: 43%;
+        width: 42%;
         margin-bottom: 32px;
+    }
+    .additional__item:last-child {
+        margin-bottom: 0;
     }
     .additional__contact-mail {
         margin-bottom: 40px;
     }
+  .additional__photo {
+      margin-right: 24px;
+  }
+  .additional__list {
+      margin-bottom: 11px;
+  }
+
   
 }
 
@@ -137,6 +152,7 @@
 
     .additional__item {
         width: 100%;
+        justify-content: center;
     }
 
 
@@ -146,7 +162,8 @@
 @media screen and (max-width: 360px) {
     .additional {
         width: calc(100% - 32px);
-        padding-bottom: 100px;
+        padding-bottom: 40px;
+        margin-bottom: 53px;
     }
     .additional__subtitle {
         margin-bottom: 12px;
@@ -164,6 +181,7 @@
     .additional__list {
         width: calc(100% - 64px);
         margin: auto;
+        margin-bottom: 48px;
     }
     .additional__contacts-title {
         margin-bottom: 25px;

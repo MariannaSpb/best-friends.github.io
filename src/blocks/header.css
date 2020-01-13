@@ -127,6 +127,13 @@
     .header__wrapper-share {
         margin-right: 44px;
     }
+
+    .header__wrapper--left {
+        align-items: center;
+    }
+    .header__title {
+        margin-bottom: 0;
+    }
   
 }
 
@@ -152,3 +159,11 @@
         height: 64px;
     }
 }
+
+@media screen and (max-width: 360px) { 
+    .header {
+        width: 100%;
+        padding-top:0;
+    }
+}
+

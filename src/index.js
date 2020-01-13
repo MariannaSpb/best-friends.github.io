@@ -329,16 +329,28 @@ function handleButtonClick(evt) {
 
 linkUp.addEventListener('click', handleButtonClick);
 
+
+
+
 //cloudpayments
-const pay =  () => {
-  var widget = new cp.CloudPayments();
+
+const progress = document.querySelector("#bar");
+const moveProgress = (money) => {
+  let width = 8;
+  let newWidth = (money * 100) / 764536;
+  progress.style.width = width + newWidth + '%';
+
+}
+
+const pay = (amount, email) => {
+  const widget = new cp.CloudPayments();
   widget.charge ({ // options
           publicId: 'test_api_00000000000000000000001',  //id из личного кабинета
           description: 'Пример оплаты (деньги сниматься не будут)', //назначение
-          amount: 10, //сумма
+          amount:  parseFloat(amount, 10), //сумма
           currency: 'RUB', //валюта
           invoiceId: '1234567', //номер заказа  (необязательно)
-          accountId: 'user@example.com', //идентификатор плательщика (необязательно)
+          accountId: email, //идентификатор плательщика (необязательно)
           skin: "mini", //дизайн виджета
           data: {
               myProp: 'myProp value' //произвольный набор параметров
@@ -346,17 +358,63 @@ const pay =  () => {
       },
       function (options) { // success
           //действие при успешной оплате
-          console.log('options')
+          console.log('success')
+          const money = document.querySelector('.payment-form__progress-amount');
+          const num1 = +"3374"; //3374
+          const sum = num1 + +amount;
+          money.textContent = sum.toLocaleString('ru-RU', { minimumSignificantDigits: 1});
+
+          moveProgress(amount);
       },
       function (reason, options) { // fail
           //действие при неуспешной оплате
           console.log('fail')
       });
-};  
-
-
+      
+}
 
 
 sendButton.forEach(button => {
-  button.addEventListener('click', pay)
+  button.addEventListener('click', function() {
+    const email = document.querySelector('#email-form').value;
+    const getAmount = () => {
+      let amount;
+      const checkboxContainer = document.querySelector('.payment-form__field--checkbox')
+      const money = document.querySelector('.payment-form__progress-amount')
+      if(checkboxContainer.querySelector('input[type=radio]:checked')) {
+         amount = checkboxContainer.querySelector('input[type=radio]:checked').value;
+      }
+      else {
+        amount = checkboxContainer.querySelector('.payment-form__input--price').value;
+      }
+      return amount;
+    }
+
+    pay(getAmount(), email);
+    document.querySelector('.payment-form__form').reset();
+  })
+});
+
+
+//modal
+sendButtonModal.forEach(button => {
+  button.addEventListener('click', function() {
+    const email = document.querySelector('#email').value;
+    const getAmount = () => {
+      let amount;
+      const checkboxContainer = document.querySelector('.payment-form__field--checkbox-modal')
+      if(checkboxContainer.querySelector('input[type=radio]:checked')) {
+         amount = checkboxContainer.querySelector('input[type=radio]:checked').value;
+      }
+      else {
+        amount = checkboxContainer.querySelector('.payment-form__input--price').value;
+      }
+      return amount;
+    }
+
+    pay(getAmount(), email);
+
+    document.querySelector('.payment-form__form--modal').reset();
+    popupClose();
+  })
 });

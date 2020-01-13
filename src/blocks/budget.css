@@ -96,7 +96,8 @@
 
 @media screen and (max-width: 768px) {
     .budget {
-        padding-bottom: 80px;
+        padding-bottom: 82px;
+        padding-top: 48px;
     }
 
     .budget__wrapper {
@@ -111,6 +112,10 @@
     .budget__rent-information:not(:last-child) {
         margin-bottom: 24px;
     }
+
+    .budget__subtitle {
+        letter-spacing: 1px;
+    }
 }
 
 @media screen and (max-width: 700px) { 
@@ -121,21 +126,27 @@
 
 
 @media screen and (max-width: 360px) {
+
+    .budget {
+        padding-top: 40px;
+        padding-bottom: 60px;
+    }
     .budget__wrapper {
         width: calc(100% - 32px);
-        min-height: 664px;
+        /* min-height: 664px; */
     }
 
     .budget__rent-information {
         width: 100%;
         padding-left: 20px;
         padding-right: 20px;
-        padding-top: 36px;
+        padding-top: 23px;
         padding-bottom: 32px;
     }
     .budget__rent-information:not(:last-child) {
-        margin-bottom: 24px;
+        margin-bottom: 35px;
     }
+
     .budget__price-item {
         font-weight: bold;
         font-size: 14px;
@@ -153,6 +164,15 @@
     }
     .budget__list {
         padding-bottom: 24px;
+    }
+
+    .budget__title {
+        margin-bottom: 17px;
+        max-width: 312px;
+    }
+
+    .budget__price-item:not(:last-child) {
+        margin-bottom: 16px;
     }
 }
 

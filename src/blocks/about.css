@@ -140,11 +140,16 @@
     .about {
 		width: calc(100% - 100px);
     }
+
     
     .about__wrapper {
         flex-direction: column;
         align-items: center;
     }
+
+    /* .about__wrapper--person {
+        flex-direction: row;
+    } */
     .about__video {
         display: block;
         width: 704px ;
@@ -165,6 +170,11 @@
     .about__description--person {
         margin-top: 30px;
 
+        margin-bottom: 20px
+    }
+
+    .about--person {
+        margin-bottom: 30px;
     }
 
     .about__description--slider {
@@ -212,9 +222,16 @@
     }
     .about__description--person {
         margin-top: 42px;
-    }  .about__description--slider {
-        margin-top: 44px;
+
+    }  
+    .about__description--slider {
+        margin-top: 42px;
     }
+
+    .about__description--slider .about__text {
+        margin-bottom: 23px;
+    }
+
     .about__image-slider {
         width: 704px;
         height: 440px;
@@ -227,6 +244,14 @@
 
     .about__description--no-order {
         order: 1;
+    }
+
+    .about--person {
+        margin-bottom: 80px;
+    }
+
+    .about__description--person {
+        margin-bottom: 0;
     }
 }
 
@@ -289,7 +314,29 @@
 
 
 @media screen and (max-width: 360px) {
+
+    .about {
+        padding-top: 32px;
+    }
     .about__video {
         height: 280px;
+    }
+    .about__video-play {
+        bottom: 32px;
+        left: 23px;
+    }
+
+    .about--main {
+        padding-bottom: 40px;
+        margin-bottom: 59px;
+    }
+
+    .about--person {
+        padding-top: 0;
+        margin-bottom: 72px;
+    }
+
+    .about__description--person {
+        margin-top: 30px;
     }
 }

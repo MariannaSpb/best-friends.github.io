@@ -65,14 +65,27 @@
 @media screen and (max-width: 768px) {
     .trainer {
         width: calc(100% - 268px);
+        padding-top: 49px;
     }
 
     .trainer__wrapper {
         flex-wrap: wrap;
     }
+    .trainer__wrapper:not(:last-child) {
+        margin-bottom: 50px;
+    }
     .trainer__subtitle {
         margin-top: 32px;
         margin-bottom: 16px;
+        letter-spacing: 1px;
+    }
+
+    .trainer__description {
+        max-width: 500px;
+    }
+
+    .trainer__text--add {
+        margin-top: 22px;
     }
 }
 
@@ -92,13 +105,17 @@
 
 
 @media screen and (max-width: 360px) {
+    .trainer {
+        padding-top: 0;
+        margin-bottom: 0px;
+    }
 
     .trainer__photo {
         width: 100%;
     }
 
     .trainer__description {
-        width: calc(100% - 32px);
+        width: calc(100% - 48px);
         margin: auto;
     }
 
@@ -110,7 +127,7 @@
     }
 
     .trainer__wrapper:not(:last-child) {
-        margin-bottom: 30px;
+        margin-bottom: 39px;
     }
     .trainer__text {
         font-size: 16px;

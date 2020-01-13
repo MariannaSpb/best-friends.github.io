@@ -228,7 +228,7 @@ margin-bottom: 36px;
 
 .payment-form__description {
 	margin: 0;
-	margin-bottom: 63px;
+	margin-bottom: 60px;
 	color: #333235;
 	font-size: 14px;
 	line-height: 16px;
@@ -237,6 +237,7 @@ margin-bottom: 36px;
 
 .payment-form__description--necessarily {
 	color: #5A3F98;
+	margin-bottom: 64px;
 }
 
 .payment-form__description--agree {
@@ -383,6 +384,10 @@ margin-bottom: 36px;
 
 
 @media  screen and (max-width: 768px) {
+	.payment-form {
+		padding-top: 127px;
+		padding-bottom: 48px;
+	}
 	.payment-form__image {
 		width: 100%;
     	height: 252px;
@@ -390,18 +395,28 @@ margin-bottom: 36px;
 
 	.payment-form__wrapper {
 		width: calc(100% - 64px);
-    	margin: auto;
+		margin: auto;
+		margin-bottom: 40px;
 	}
 
 	.payment-form__field--radio {
 		width: 100%;
+	}
+
+	.payment-form__input--price {
+		padding: 11px 18px;
+    	padding-bottom: 16px;
+	}
+	.payment-form__price-wrapper::after {
+		top: 12px;
+    	right: 16px;
 	}
 	
 }
 
 @media  screen and (max-width: 700px) {
 	.payment-form__price-wrapper::before {
-		width: 357px;
+		max-width: 357px;
 	}
 
 	.payment-form__wrapper {
@@ -464,12 +479,19 @@ margin-bottom: 36px;
 
 
 @media  screen and (max-width: 360px) {
+
+	.payment-form {
+		padding-top: 60px;
+		margin-bottom: 56px;
+	}
 	.payment-form__wrapper {
 		width: calc(100% - 32px);
-    	margin: auto;
+		margin: auto;
+		margin-bottom: 31px;
 	}
 	.payment-form__field--checkbox {
 		flex-wrap: wrap;
+		margin-bottom: 31px;
 	}
 	.payment-form__label {
 		width: 30%;
@@ -483,6 +505,7 @@ margin-bottom: 36px;
 
 	.payment-form__field--radio {
 		width: 100%;
+		margin-bottom: 45px;
 	}
 	.payment-form__input-wrapper {
 		width: 100%;
@@ -502,18 +525,34 @@ margin-bottom: 36px;
     	height: auto;
 	}
 	.payment-form__input-wrapper:not(:last-child) {
-		margin-bottom: 10px;
+		margin-bottom: 14px;
 	}
 	.payment-form__button:not(:last-child) {
 		margin-bottom: 24px;
 	}
 	.payment-form__buttons-container {
 		flex-wrap: wrap;
-		margin-bottom: 32px;
+		margin-bottom: 24px;
 	}
 
 	.payment-form__price-wrapper {
 		max-width: 212px;
+	}
+
+	.payment-form__description--necessarily {
+		margin-bottom: 35px;
+	}
+
+	.payment-form__agree {
+		display: inline-block;
+    	margin-left: 23px;
+	}
+
+	.payment-form__description--agree {
+		padding-left: 17px;
+	}
+	.payment-form__progress {
+		margin-top:56px;
 	}
 
 }
