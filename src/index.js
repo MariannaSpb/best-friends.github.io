@@ -12,6 +12,7 @@ const ownAmountPage = document.querySelector('#price-form');
 const amountsModal = document.querySelectorAll('.payment-form__input-radio-modal');
 const amountsPage = document.querySelectorAll('.payment-form__input-radio-page');
 
+
 const toggleHidden = () => {
   shareList.classList.toggle('hidden');
   shareButton.classList.toggle('hidden');
@@ -175,6 +176,7 @@ const validationForm = (event) => {
   event.preventDefault();
   const inputEmail = document.querySelector('#email-form');
   const email = inputEmail.value;
+
   inputs.forEach(item => {
     if (item.value.length === 0) {
       item.classList.add('error');
@@ -196,8 +198,8 @@ const validationForm = (event) => {
       inputEmail.classList.add('error');
       document.querySelector('.payment-form__user-label--email').classList.add('error-text');
     }
-
   });
+
 }
 
 
@@ -310,7 +312,8 @@ ownAmountModal.addEventListener('input', () => {
 
 ownAmountPage.addEventListener('input', () => {
   amountsPage.forEach(item => {
-    item.removeAttribute('checked');
+    const checkboxContainer = document.querySelector('.payment-form__field--checkbox')
+      item.removeAttribute('checked');
   })
 });
 
@@ -319,8 +322,6 @@ ownAmountPage.addEventListener('input', () => {
 //элемент - контейнер P и затем в контейнере найдёт лейбл. 
 
 const linkUp = document.querySelector('.scroll');
-// const header = document.querySelector('.header');
-
 
 function handleButtonClick(evt) {
   evt.preventDefault();
@@ -357,14 +358,60 @@ const pay = (amount, email) => {
           }
       },
       function (options) { // success
-          //действие при успешной оплате
           console.log('success')
-          const money = document.querySelector('.payment-form__progress-amount');
-          const num1 = +"3374"; //3374
-          const sum = num1 + +amount;
-          money.textContent = sum.toLocaleString('ru-RU', { minimumSignificantDigits: 1});
+          const money = document.querySelector('.payment-form__progress-amount'); // span
+          
+          console.log('money.textContent', money.textContent) //string
+          
+          const string =  money.textContent;
+          const noString = parseInt(string.replace(/\s/g, ''));
+          console.log('noString', noString)
+          const sum = +amount + noString; //число
 
-          moveProgress(amount);
+          // проверка, если noString строка,  то преобразовать в число 
+          if(typeof noString == "string" ) {
+            newnNoString = parseInt(noString.replace(/\s/g, ''));
+            console.log('noStringPARSE', newnNoString)
+            const sum = +amount + newnNoString;
+            return sum;
+          }
+
+         money.textContent = sum.toLocaleString('ru-RU', { minimumSignificantDigits: 1}); //превратили в строку 
+         
+          fetch(`https://v2-api.sheety.co/b06233755f2a73d063e8e49f126b0a1d/newProject/emails`, {
+            method: 'POST',
+            headers: {
+            authorization: 'd5211b32-cadd-445e-acab-fa3717d536',
+            'Content-Type': 'application/json'
+          },
+      
+            body: JSON.stringify({
+              email: {
+                summa: +amount,
+                email: email
+              }
+            }) 
+          })
+    
+        .then(res => {
+          if (res.ok) {
+            console.log('amount', amount)
+            return res.json();
+            }
+          return Promise.reject(`Ошибка: ${res.status}`);
+        })
+      
+        .then((result) => { //обрабатываем рузультат
+          if (result) {
+            console.log('result', result) // объект email: {email: ----, summa:-----}
+            return result
+            }
+          })
+        .catch(err => {
+          console.log('Ошибка. Запрос не выполнен: ', err);
+        })
+
+          moveProgress(sum);
       },
       function (reason, options) { // fail
           //действие при неуспешной оплате
@@ -390,8 +437,9 @@ sendButton.forEach(button => {
       return amount;
     }
 
-    pay(getAmount(), email);
-    document.querySelector('.payment-form__form').reset();
+      pay(getAmount(), email);
+      document.querySelector('.payment-form__form').reset();
+    
   })
 });
 
@@ -418,3 +466,78 @@ sendButtonModal.forEach(button => {
     popupClose();
   })
 });
+
+
+  //получаю данные из таблицы
+  const sumContainer = document.querySelector(`.payment-form__progress-amount`);
+  console.log('sumContainer', sumContainer)
+  class Sum {
+    constructor(sumData) {
+      this.sum = sumData.sum[0].sum;
+     
+    }
+
+    create() {
+      
+      return `${this.sum.toLocaleString('ru-RU', { minimumSignificantDigits: 1})}`;
+      // return `${this.sum}`;
+      
+    }
+  }
+
+//new
+  class SumRender {
+    constructor(container, obj) {
+      this.container = container;
+      this.obj = obj;
+    }
+
+    render() {
+      const sum = new Sum(this.obj);
+      this.container.textContent= sum.create();
+      // console.log('this.containe', this.container)
+      return this.container
+    }
+
+  }
+
+
+  const getData = () => {
+    
+  fetch(`https://v2-api.sheety.co/b06233755f2a73d063e8e49f126b0a1d/newProject/sum`, {
+    headers: {
+      authorization: 'd5211b32-cadd-445e-acab-fa3717d536',
+      'Content-Type': 'application/json'
+    }
+  })
+    .then((res) => res.json())
+    
+    .then((data) => {
+      console.log('data', data);
+     
+      let newSumRender= new SumRender(sumContainer, data); //
+      newSumRender.render();
+      console.log('render',  newSumRender.render())
+
+    })
+    .catch((err) => {
+      console.log('Ошибка. Запрос не выполнен: ', err);
+    });
+  }
+
+
+
+  const span = document.querySelector('#progress-amount');
+  console.log('span', span)
+
+  getData();
+ 
+
+
+
+
+
+
+
+
+

@@ -10,7 +10,9 @@ margin-bottom: 36px;
 	width: 136px;
 }
 
-
+/* .payment-form__progress-amount {
+	display: inline-block;
+} */
 
 .payment-form__field--radio::before {
 	content: "";
