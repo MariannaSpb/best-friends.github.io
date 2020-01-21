@@ -124,7 +124,7 @@ const EMAIL_ERROR = "Адрес почты указан в неверном фо
 const form = document.forms.payment;
 const modalForm = document.forms.modal;
 const inputs = document.querySelectorAll('.payment-form__user-input');
-const sendButton = document.querySelectorAll('.payment-form__button');
+const sendButton = document.querySelectorAll('.payment-form__button--form');
 
 inputs.forEach(item => {
   item.addEventListener('input', () => {
@@ -172,40 +172,40 @@ const validateEmail = (email) => {
 
 
 
-const validationForm = (event) => { 
-  event.preventDefault();
-  const inputEmail = document.querySelector('#email-form');
-  const email = inputEmail.value;
+// const validationForm = (event) => { 
+//   event.preventDefault();
+//   const inputEmail = document.querySelector('#email-form');
+//   const email = inputEmail.value;
 
-  inputs.forEach(item => {
-    if (item.value.length === 0) {
-      item.classList.add('error');
-      item.closest('.payment-form__input-box').querySelector('.payment-form__user-label').classList.add('error-text');
-      item.closest('.payment-form__input-box').querySelector('.payment-form__error').textContent = REQUIRED_FIELD;
+//   inputs.forEach(item => {
+//     if (item.value.length === 0) {
+//       item.classList.add('error');
+//       item.closest('.payment-form__input-box').querySelector('.payment-form__user-label').classList.add('error-text');
+//       item.closest('.payment-form__input-box').querySelector('.payment-form__error').textContent = REQUIRED_FIELD;
      
-      event.preventDefault();
+//       event.preventDefault();
 
-    }
-    if (item.value.length > 0 && !validateEmail(email)) {
-      event.preventDefault();
-      item.classList.remove('error');
-      item.closest('.payment-form__input-box').querySelector('.payment-form__user-label').classList.remove('error-text');
-      item.closest('.payment-form__input-box').querySelector('.payment-form__error').textContent = '';
-      document.querySelector('.payment-form__error--email').textContent = EMAIL_ERROR;
-    }
+//     }
+//     if (item.value.length > 0 && !validateEmail(email)) {
+//       event.preventDefault();
+//       item.classList.remove('error');
+//       item.closest('.payment-form__input-box').querySelector('.payment-form__user-label').classList.remove('error-text');
+//       item.closest('.payment-form__input-box').querySelector('.payment-form__error').textContent = '';
+//       document.querySelector('.payment-form__error--email').textContent = EMAIL_ERROR;
+//     }
 
-    if (!validateEmail(email)) {
-      inputEmail.classList.add('error');
-      document.querySelector('.payment-form__user-label--email').classList.add('error-text');
-    }
-  });
+//     if (!validateEmail(email)) {
+//       inputEmail.classList.add('error');
+//       document.querySelector('.payment-form__user-label--email').classList.add('error-text');
+//     }
+//   });
+//   return;
+// }
 
-}
 
-
-sendButton.forEach(button => {
-  button.addEventListener('click', validationForm)
-});
+// sendButton.forEach(button => {
+//   button.addEventListener('click', validationForm)
+// });
 
 
 //modal
@@ -332,7 +332,6 @@ linkUp.addEventListener('click', handleButtonClick);
 
 
 
-
 //cloudpayments
 
 const progress = document.querySelector("#bar");
@@ -422,23 +421,59 @@ const pay = (amount, email) => {
 
 
 sendButton.forEach(button => {
-  button.addEventListener('click', function() {
-    const email = document.querySelector('#email-form').value;
-    const getAmount = () => {
-      let amount;
-      const checkboxContainer = document.querySelector('.payment-form__field--checkbox')
-      const money = document.querySelector('.payment-form__progress-amount')
-      if(checkboxContainer.querySelector('input[type=radio]:checked')) {
-         amount = checkboxContainer.querySelector('input[type=radio]:checked').value;
+  button.addEventListener('click', function(event) {
+    const inputEmail = document.querySelector('#email-form');
+    const email = inputEmail.value;
+    const inputsArray = Array.from(inputs);
+    const res =  inputsArray.every((item) => {
+      console.log('inputsArray', item)
+      if (item.value.length === 0) {
+        item.classList.add('error');
+        item.closest('.payment-form__input-box').querySelector('.payment-form__user-label').classList.add('error-text');
+        item.closest('.payment-form__input-box').querySelector('.payment-form__error').textContent = REQUIRED_FIELD;
+        //event.preventDefault();
+        return true;
       }
-      else {
-        amount = checkboxContainer.querySelector('.payment-form__input--price').value;
+      if (item.value.length > 0 && !validateEmail(email)) {
+        item.classList.remove('error');
+        item.closest('.payment-form__input-box').querySelector('.payment-form__user-label').classList.remove('error-text');
+        item.closest('.payment-form__input-box').querySelector('.payment-form__error').textContent = '';
+        inputEmail.classList.add('error');
+        document.querySelector('.payment-form__user-label--email').classList.add('error-text');
+        document.querySelector('.payment-form__error--email').textContent = EMAIL_ERROR;
+        return true;
       }
-      return amount;
-    }
+      if (!validateEmail(email)) {
+        inputEmail.classList.add('error');
+        document.querySelector('.payment-form__user-label--email').classList.add('error-text');
+        return true;
+      }
+      
+        return false;
+    })
+ 
+    if(res) {
+      event.preventDefault();
+      return;
+    } else {
+      event.preventDefault();
+      const email = document.querySelector('#email-form').value;
+      const getAmount = () => {
+        let amount;
+        const checkboxContainer = document.querySelector('.payment-form__field--checkbox')
+        const money = document.querySelector('.payment-form__progress-amount')
+        if(checkboxContainer.querySelector('input[type=radio]:checked')) {
+          amount = checkboxContainer.querySelector('input[type=radio]:checked').value;
+        }
+        else {
+          amount = checkboxContainer.querySelector('.payment-form__input--price').value;
+        }
+        return amount;
+      }
+        pay(getAmount(), email);
+        document.querySelector('.payment-form__form').reset();
 
-      pay(getAmount(), email);
-      document.querySelector('.payment-form__form').reset();
+    } 
     
   })
 });
