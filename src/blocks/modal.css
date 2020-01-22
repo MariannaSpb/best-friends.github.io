@@ -49,11 +49,14 @@
 	margin: 0;
 	font-weight: bold;
 	margin-bottom: 40px;
+	text-align: center;
     font-size: 21px;
     line-height: 28px;
     letter-spacing: 0.5px;
     color: #FC691B;
 }
+
+
 
 .modal__image {
 	margin: 0 auto;
