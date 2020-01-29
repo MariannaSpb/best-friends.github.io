@@ -3,6 +3,7 @@ import '../node_modules/swiper/css/swiper.min.css';
 import {headerScript} from "./header";
 import {videoScript} from "./video";
 import {sliderrScript} from "./slider";
+import Api from './data';
 
 
 headerScript();
@@ -187,8 +188,9 @@ linkUp.addEventListener('click', handleButtonClick);
 //cloudpayments
 
 const progress = document.querySelector("#bar");
+
 const moveProgress = (money) => {
-  let width = 8;
+  let width = 0;
   let newWidth = (money * 100) / 764536;
   progress.style.width = width + newWidth + '%';
 
@@ -435,6 +437,7 @@ sendButtonModal.forEach(button => {
      
       let newSumRender= new SumRender(sumContainer, data); //
       newSumRender.render();
+      console.log('DATA', data)
       moveProgress(data.sum[0].sum)
       
     })
@@ -450,7 +453,9 @@ sendButtonModal.forEach(button => {
  
 
 
-
+//при разбиении js файла на модули необходимо руководствоваться принципами ООП. 
+// в вашем коде вполне можно было вынести логику оплаты и логику хранения данных для отображения прогресс бара в двух разных классах, 
+// и взаимодействовать между ними используя методы экземпляров класса.
 
 
 
