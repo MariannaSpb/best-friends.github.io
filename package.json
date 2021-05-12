@@ -35,6 +35,6 @@
     "babel-polyfill": "^6.26.0",
     "core-js": "^3.4.1",
     "imagemin-pngquant": "^5.0.1",
-    "swiper": "^5.2.1"
+    "swiper": "^6.5.1"
   }
 }
